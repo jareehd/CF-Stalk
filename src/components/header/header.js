@@ -7,12 +7,8 @@ import { Link  } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     title: {
       flexGrow: 1,
+      padding:10    
     },
-    links:{
-        
-      margin: 0 
-    }
-    
   }));
 
 const Header = () =>{
@@ -20,11 +16,11 @@ const Header = () =>{
     return (
       <AppBar position="static">
   <Toolbar variant="dense">
-  <Typography variant="h4" color="inherit" className={classes.title}>
+    <Typography variant="h4" color="inherit" className={classes.title}>
       Stalker
     </Typography>
     
-    <div className={classes.links}> 
+    <div > 
      
      <Button color="inherit"> 
       <Link to="/" style={{ textDecoration: "none", color:'white', width: "100%" }} >
