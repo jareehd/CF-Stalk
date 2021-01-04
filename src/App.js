@@ -1,15 +1,17 @@
 import './App.css';
 import {HashRouter, Route ,Switch} from 'react-router-dom'
 import Header from './components/header/header.js'
+import Dashboard from './components/dashboard/dashboard.js'
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      
       <HashRouter >
+        <Header/>
           <Switch>
-             <Route exact path='/a' component = {Header} />
-             <Route path='/b' component = {Header} />
+             <Route exact path='/' component = {Dashboard} />
+             <Route path='/home' component = {Dashboard} />
           </Switch>
       </HashRouter>
     </div>
