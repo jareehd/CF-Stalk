@@ -38,6 +38,12 @@ const User = (props) =>{
      })
 
      Rating.forEach((key,value) => RatingArray.push({key,value}))
+     Tag.forEach((key,value) => TagArray.push({key,value}))
+     
+     TagArray.sort((a,b) =>{
+         if(a.key < b.key) return 1;
+         else return -1;
+     })
 
     }
     init()
@@ -45,10 +51,9 @@ const User = (props) =>{
     const length = props.location.result.length
     return (
         <div>
-           user
            { length === 0 ? <p> User has no compitive record</p> :(
                <div>
-                    <ProblemTagCard RatingArray/>
+                    <ProblemTagCard  TagArray={TagArray}/>
             
                    {/* {Tag.forEach((key,value) => console.log(key,value))} */}
                </div>

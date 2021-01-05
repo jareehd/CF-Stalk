@@ -28,7 +28,7 @@ const Header = () =>{
        </Link> 
      </Button>
      <Button color="inherit"> 
-      <Link to="/" style={{ textDecoration: "none", color:'white', width: "100%" }} >
+      <Link to="/compare" style={{ textDecoration: "none", color:'white', width: "100%" }} >
                    Compare
        </Link>
      </Button>
