@@ -43,7 +43,7 @@ const CompareDashboard = (props) => {
             }).get()
               
                 history.push({
-                    pathname: '/compare',
+                    pathname: '/usersCompare',
                     result: {
                       user1 :res1.data.result,
                       user2 :res2.data.result,

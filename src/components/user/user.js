@@ -1,5 +1,7 @@
 import React from 'react'
 import ProblemTagCard from '../problemTagCard/problemTagCard'
+import RatingChart from '../ratingBarChart/ratingBarChart'
+
 
 const User = (props) =>{
     
@@ -53,8 +55,8 @@ const User = (props) =>{
         <div>
            { length === 0 ? <p> User has no compitive record</p> :(
                <div>
-                    <ProblemTagCard  TagArray={TagArray}/>
-            
+                    <ProblemTagCard Type ={1} TagArray={TagArray}/>
+                    {/* <RatingChart RatingArray={RatingArray}/> */}
                    {/* {Tag.forEach((key,value) => console.log(key,value))} */}
                </div>
            )}

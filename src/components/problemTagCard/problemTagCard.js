@@ -9,10 +9,41 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 
-const columns = [
-  { id: 'name', label: 'Tag Name', maxWidth: 100 },
-  { id: 'code', label: 'Solved', minWidth: 100 }
-];
+let columns,rows;
+
+const init = (props) =>{
+  if(props.Type == 1){
+     columns = [
+        { id: 'name', label: 'Tag Name', maxWidth: 100 },
+        { id: 'code', label: 'Solved', minWidth: 100 }
+      ];
+      
+      rows = props.TagArray.map((e) => {
+        return  { name:e.value , code:e.key} 
+      })
+
+  } else {
+     columns = [
+        { id: 'name', label: 'Tag Name', maxWidth: 100 },
+        { id: 'user1', label: 'Solved by User1', minWidth: 70 },
+        { id: 'user2', label: 'Solved by User2', minWidth: 70 }
+     ];
+
+     
+    const Keys = new Set() 
+    
+    props.Tag1.forEach( (key,value) => Keys.add(value))
+    props.Tag2.forEach( (key,value) => Keys.add(value))
+    
+    let tagArray = new Array()
+    Keys.forEach((e)=>{
+      const name = e , user1 = props.Tag1.get(e)  ,user2 = props.Tag2.get(e);
+      tagArray.push({name,user1,user2})
+      console.log({name , user1 ,user2})
+    })
+    rows = tagArray
+  }   
+}
 
 const useStyles = makeStyles({
   root: {
@@ -24,13 +55,10 @@ const useStyles = makeStyles({
 });
 
 export default function StickyHeadTable(props) {
+  init(props) 
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(7);
-  
- const rows = props.TagArray.map((e) => (
-    { name:e.value , code:e.key} 
- ))
  
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
